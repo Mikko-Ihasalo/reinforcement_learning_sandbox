@@ -1,5 +1,6 @@
 import unittest
-from src.agents.index import Agent
+from agents.black_jack_agent import Agent
+
 
 class TestAgent(unittest.TestCase):
 
@@ -21,5 +22,6 @@ class TestAgent(unittest.TestCase):
         self.agent.train(initial_state, action, reward, next_state)
         # Add assertions to verify training logic if applicable
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()

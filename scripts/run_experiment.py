@@ -1,13 +1,15 @@
 import yaml
 import sys
-from src.environments.index import GymEnvironment
+from environments.war_card_game_env import GymEnvironment
 from src.models.index import DQN, PPO
-from src.agents.index import Agent
+from agents.black_jack_agent import Agent
+
 
 def load_config(config_path):
-    with open(config_path, 'r') as file:
+    with open(config_path, "r") as file:
         config = yaml.safe_load(file)
     return config
+
 
 def main():
     if len(sys.argv) != 2:
@@ -18,13 +20,13 @@ def main():
     config = load_config(config_path)
 
     # Initialize environment
-    env = GymEnvironment(config['environment'])
+    env = GymEnvironment(config["environment"])
 
     # Initialize model
-    if config['model']['type'] == 'DQN':
-        model = DQN(config['model']['params'])
-    elif config['model']['type'] == 'PPO':
-        model = PPO(config['model']['params'])
+    if config["model"]["type"] == "DQN":
+        model = DQN(config["model"]["params"])
+    elif config["model"]["type"] == "PPO":
+        model = PPO(config["model"]["params"])
     else:
         raise ValueError("Unsupported model type")
 
@@ -32,12 +34,13 @@ def main():
     agent = Agent(model, env)
 
     # Run training or testing based on config
-    if config['mode'] == 'train':
-        agent.train(config['training'])
-    elif config['mode'] == 'test':
-        agent.test(config['testing'])
+    if config["mode"] == "train":
+        agent.train(config["training"])
+    elif config["mode"] == "test":
+        agent.test(config["testing"])
     else:
         raise ValueError("Unsupported mode")
+
 
 if __name__ == "__main__":
     main()

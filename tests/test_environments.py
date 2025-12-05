@@ -1,5 +1,6 @@
 import unittest
-from src.environments.index import GymEnvironment
+from environments.war_card_game_env import GymEnvironment
+
 
 class TestGymEnvironment(unittest.TestCase):
 
@@ -20,5 +21,6 @@ class TestGymEnvironment(unittest.TestCase):
         self.assertIsInstance(done, bool)
         self.assertIsInstance(info, dict)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()
