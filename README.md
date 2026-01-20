@@ -55,9 +55,9 @@ Unit tests are provided for each component in the `tests` directory. To run the 
 pytest tests/
 ```
 
-## Contributing
+## TODO
 
-Contributions are welcome! Please open an issue or submit a pull request for any enhancements or bug fixes.
+Fix the AI slop
 
 ## License
 
